@@ -1,13 +1,126 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  width: 100%;
+  /* height: 100%; */
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.overlay {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  margin: auto;
+  text-align: center;
+}
+.wrapper .static-txt {
+  color: #fff;
+  margin-top: 30px;
+  margin-left: 50px;
+  font-size: 30px;
+  font-weight: 500;
+}
+.wrapper .dynamic-txts {
+  margin-left: 15px;
+  height: 90px;
+  line-height: 90px;
+  text-align: left;
+  overflow: hidden;
+}
+.dynamic-txts li {
+  list-style: none;
+  color: #fc6d6d;
+  font-size: 50px;
+  font-weight: 500;
+  position: relative;
+  top: 0;
+  animation: slide 12s steps(4) infinite;
+}
+@keyframes slide {
+  100% {
+    top: -360px;
+  }
+}
+.dynamic-txts li span {
+  position: relative;
+  margin: 5px 0;
+  line-height: 90px;
+}
+.dynamic-txts li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #0f172a;
+  border-left: 2px solid #fc6d6d;
+  animation: typing 3s steps(10) infinite;
+}
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 30px);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.inputs {
+  position: absolute;
+  top: 520px;
+  margin-left: -400px;
+  width: 100%;
+}
+
+.sideinputs {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+}
+
+.buttoncentre {
+  margin-top: -10px;
+  margin-left: 235px;
+  width: 100%;
+}
+
+h2 {
+  color: #fff;
+  margin: auto;
+  text-align: center;
+}
+
+.load {
+  margin-top: -320px;
+  margin-left: -600px;
+}
+
+.og {
+  width: auto;
+  margin: auto;
+  padding-top: 150px;
+  padding-left: 250px;
+  width: 600px;
+  height: 400px;
+  margin-left: 50%;
+  background: #0f172a;
+  position: relative;
+  z-index: 1;
+}
+
+.loadp {
+  width: 100%;
+  margin-left: -150px;
+  margin-top: 50px;
 }
