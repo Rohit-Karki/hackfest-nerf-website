@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { DropzoneArea } from 'material-ui-dropzone';
 import swal from 'sweetalert';
-
-
-
+import { useNavigate } from "react-router-dom";
 
 
 const Inputs = () => {
@@ -67,7 +65,7 @@ const Inputs = () => {
         <div class="flex flex-wrap -mx-4 -my-8 mb-6">
           <br />
           <label for="large-input" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Upload Video/Image</label>
-          <DropzoneArea
+          <DropzoneArea maxSize={52428800}
             onChange={(files) => console.log('Files:', files)}
           />
           <label class="block text-neutral-200 text-sm font-bold mb-4" for="username">
@@ -88,9 +86,8 @@ const Inputs = () => {
     );
   };
 
-
-
   const Form3 = () => {
+    const navigate = useNavigate();
     const [features, setFeatures] = useState('');
     const [reviews, setReviews] = useState('');
 
@@ -101,12 +98,11 @@ const Inputs = () => {
 
       setTimeout(() => {
         setLoading(false);
-      }, 200000);
+        navigate('/dashboard')
+      }, 4000);
 
       e.preventDefault();
       swal("Completed.", "successfully submitted");
-
-
     };
 
     return (
